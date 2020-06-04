@@ -3,7 +3,7 @@ class Stationery():
         self.title = title
     def draw(self):
         print(f'Рисуем текст :{self.title}')
-class Pen(Stationery):
+class Pen(Stationery): # Дочерний класс
     def draw(self):
         print(f"Рисуем текст карандашом от компании {self.title}")
 class Pencil(Stationery):
