@@ -4,14 +4,9 @@ class Car():
     color = ''
     name= ''
     is_police = False
-    def show_speed(self, speed):
-         Car.speed = speed
-         if (Car.speed > 60):
-             print("Выяснилось , что машина двигалась слишком быстро. Ее оштрафовали.")
-         elif(Car.speed > 40):
-              print("Машина двигалась слишком быстро. Ее оштрафовали.")
-         else:
-            print("Машина двигается с приемлемой скоростью.")
+    # def show_speed(self, speed):
+    #     Car.speed = speed
+    #     print("Машина двигается с приемлемой скоростью.")
     def go(self, name, color):
         Car.color = color
         Car.name = name
@@ -31,13 +26,19 @@ class Car():
             i +=1
 
 class TownCar(Car):
+    speed = 0
     def __init__(self, speed, name, color):
         super().go(name, color)
         print()
         super().turn()
         print()
         print("Скорость машины", speed, "км\ч")
-        super().show_speed(speed)
+        TownCar.speed = speed
+    def show_speed(self):
+        if (TownCar.speed > 60):
+            print("Выяснилось ,что машина двигалась слишком быстро. Ее оштрафовали.")
+        else:
+            print('Машина двигается с приемлемой скоростью.')
         super().stop()
 class SportCar(Car):
     def __init__(self, speed, name, color):
@@ -46,16 +47,22 @@ class SportCar(Car):
          super().turn()
          print()
          print("Скорость машины", speed, "км\ч")
-         super().show_speed(speed)
+         print('Машина двигается с приемлемой скоростью.')
          super().stop()
 class WorkCar(Car):
+    speed = 0
     def __init__(self, speed, name, color):
          super().go(name, color)
          print()
          super().turn()
          print()
          print("Скорость машины", speed, "км\ч")
-         super().show_speed(speed)
+         WorkCar.speed = speed
+    def show_speed(self):
+         if (WorkCar.speed > 40):
+            print("Выяснилось ,что машина двигалась слишком быстро. Ее оштрафовали.")
+         else:
+             print('Машина двигается с приемлемой скоростью.')
          super().stop()
 class PoliceCar(Car):
     def __init__(self, speed, name, color):
@@ -65,11 +72,11 @@ class PoliceCar(Car):
          super().turn()
          print()
          print("Скорость машины", speed, "км\ч")
-         super().show_speed(speed)
+         print('Машина двигается с приемлемой скоростью.')
          super().stop()
 
 user_car = TownCar(70, "Town car", "Зеленый")
-# user_car = WorkCar(30, "Work car")
+user_car.show_speed()
 
 # ---------------------------------------------Вариант-----------------------------------------------
 # from random import randint
