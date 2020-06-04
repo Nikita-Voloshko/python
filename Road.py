@@ -1,6 +1,4 @@
 class Road():
-    # length = input()
-    # width = input()
     def __init__(length, width):
         return float(length) * float(width) * 25 * 5 / 1000
 
